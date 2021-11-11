@@ -26,6 +26,7 @@ jobs:
           github-token: ${{secrets.PUSH_TOKEN}}
           script: |
             const tag = require("child_process").execSync("git describe").toString();
+            console.log(tag);
             await github.request(`POST /repos/${{ github.repository }}/releases`, {
               tag_name: tag,
               generate_release_notes: true
