@@ -1,0 +1,31 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name 'github-actions'
+          git config user.email '/'
+          git branch
+          yarn
+          yarn release
+          git --no-pager log
+          git push origin master --follow-tags
+      - uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.request(`POST /repos/${{ github.repository }}/releases`, {
+              tag_name: "${{ github.ref }}",
+              generate_release_notes: true
+            });
