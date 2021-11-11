@@ -23,7 +23,7 @@ jobs:
           git push origin master --follow-tags
       - uses: actions/github-script@v5
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.PUSH_TOKEN}}
           script: |
             const tag = require("child_process").execSync("git describe").toString();
             await github.request(`POST /repos/${{ github.repository }}/releases`, {
