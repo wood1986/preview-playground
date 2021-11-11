@@ -1,0 +1,19 @@
+{
+  "name": "@wood1986/preview-playground",
+  "keywords": [
+    "react",
+    "ssr",
+    "webpack"
+  ],
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "standard-version": "^9.3.2"
+  }
+}
