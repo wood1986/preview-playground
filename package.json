@@ -5,7 +5,7 @@
     "ssr",
     "webpack"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/wood1986/preview-playground",
   "bugs": "https://github.com/wood1986/preview-playground/issues",
   "main": "index.js",
